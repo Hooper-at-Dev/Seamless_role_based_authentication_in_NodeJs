@@ -1,0 +1,1 @@
+Seamless_role_based_authentication_in_NodeJs About 🚖 Next.js Cab Booking Platform with seamless Role-Based Authentication powered by JWT (JSON Web Token) 🔐. Effortlessly manage Admins, Drivers, and Users with secure login, real-time rides, and smooth UX — all in one powerful Node.js backend & modern frontend! 💻✨
