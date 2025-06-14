@@ -19,16 +19,6 @@ export const register = async (req: Request, res: Response) => {
       return res.status(400).json({ message: 'All fields are required: email, password, firstName, lastName' });
     }
     
-    // Add email domain validation for regular users
-    if (role !== UserRole.ADMIN && role !== UserRole.PRIME_ADMIN) {
-      // Change from @university.edu.in to @bennett.edu.in
-      if (!email.toLowerCase().endsWith('@bennett.edu.in')) {
-        return res.status(400).json({ 
-          message: 'Regular user accounts require an email address ending with @bennett.edu.in'
-        });
-      }
-    }
-
     // Check if user already exists
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {

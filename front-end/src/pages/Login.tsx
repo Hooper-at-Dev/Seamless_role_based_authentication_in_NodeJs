@@ -30,8 +30,10 @@ const Login = () => {
   }, [isAuthenticated, user, navigate]);
 
   const validateEmail = (email: string): boolean => {
-    if (!email.toLowerCase().endsWith('@bennett.edu.in')) {
-      setError('Please use your university email address ending with @bennett.edu.in');
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address');
       return false;
     }
     return true;
@@ -306,7 +308,7 @@ const Login = () => {
 
             {isLogin ? (
               <div className="text-xs text-gray-500 mt-2">
-                Regular users must use university email addresses ending with @bennett.edu.in
+                only valid emails will be accepted, crosschecking will be done by sending otp.
               </div>
             ) : (
               <div className="text-xs text-gray-500 mt-2">
